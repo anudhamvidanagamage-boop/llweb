@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  --muted: #f7f7f7;
+  --muted-foreground: #525252;
+  --border: #e5e5e5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, .font-editorial {
+  font-family: var(--font-serif);
+}
+
+.luxe-hero-overlay {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(0, 0, 0, 0.75) 50%,
+    rgba(0, 0, 0, 0) 75%
+  );
+}
+
+.luxe-hero-copy > span,
+.luxe-hero-copy > h1,
+.luxe-hero-copy > p {
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.35);
+}
+
+.luxe-hero-eyebrow {
+  text-wrap: balance;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .luxe-hero-copy {
+    max-width: 400px;
+  }
+}
+
+.luxe-hero-image {
+  animation: luxe-hero-image-settle 1.6s ease-out both;
+  transform-origin: center;
+}
+
+.luxe-hero-reveal {
+  animation: luxe-hero-fade-up 600ms ease-out both;
+}
+
+.luxe-hero-reveal-1 {
+  animation-delay: 0ms;
+}
+
+.luxe-hero-reveal-2 {
+  animation-delay: 100ms;
+}
+
+.luxe-hero-reveal-3 {
+  animation-delay: 200ms;
+}
+
+.luxe-hero-reveal-4 {
+  animation-delay: 300ms;
+}
+
+@keyframes luxe-hero-image-settle {
+  from {
+    transform: scale(1.05);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes luxe-hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .luxe-hero-eyebrow {
+    letter-spacing: 0.12em;
+  }
+
+  .luxe-hero-image {
+    transform-origin: center;
+  }
+
+  .luxe-hero-image-frame {
+    transform: scale(1.15);
+    transform-origin: center bottom;
+  }
+
+  .luxe-hero-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.88) 60%,
+      rgba(0, 0, 0, 0) 90%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .luxe-hero-image,
+  .luxe-hero-reveal {
+    animation: none;
+  }
+}
+
+/* Subtle custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #000000;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
